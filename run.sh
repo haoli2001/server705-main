@@ -6,7 +6,8 @@
 
 list="node1 node2 node3"
 #usrlib_dir="/home/xianyun/705/KunPeng/2023.11.7"
-usrlib_dir="/home/hao/Documents/KunPeng/2023.11.7/"
+#usrlib_dir="/home/hao/Documents/KunPeng/2023.11.7/"
+usrlib_dir="/home/xianyun/XD_YLSim/code/usr_lib"
 scrip_dir=$(cd $(dirname $0);pwd)
 dir=$(dirname $scrip_dir)
 #echo "use_dir_top = $(dirname $usrlib_dir); usr_dir = $usrlib_dir."
@@ -20,4 +21,5 @@ do
 done
 echo "copy finished"
 
-./restart.sh OUT
+#./restart.sh OUT
+mpirun -np 352 -f servers./OUT
