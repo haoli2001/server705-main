@@ -235,8 +235,8 @@ int main(int argc, char* argv[])
 	char hostname[100];
 
 	//初始化MPI，线程级别设置为：多线程, 但只有主线程会进行MPI调用
-	MPI_Init_thread(&argc, &argv, MPI_THREAD_FUNNELED, &provided_thread_rank);
-	if (provided_thread_rank < MPI_THREAD_FUNNELED)
+	MPI_Init_thread(&argc, &argv, MPI_THREAD_MULTIPLE, &provided_thread_rank);
+	if (provided_thread_rank < MPI_THREAD_MULTIPLE)
 		MPI_Abort(MPI_COMM_WORLD, 1);
 	//MPI_Init(&argc, &argv);        // starts MPI
 	MPI_Comm_rank(MPI_COMM_WORLD, &myid);  // get current process id
